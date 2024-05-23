@@ -7,21 +7,25 @@
 }
 
 .options-board {
-    height: 687px;
-    width: 500px;
+    margin: 50px 50px;
+    height: 500px;
+    width: 350px;
     background-image: url('../../assets/options-board.png');
     background-size: contain;
     background-position: left center;
     background-repeat: no-repeat;
+}
+
+.buttons-container {
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: center;
 }
 
 .button-style {
-    margin-top: 115px;
-    margin-left:150px;
+    margin-top: 35px;
     border: none;
     background-image: url('../../assets/button-base.png');
     background-size: contain;

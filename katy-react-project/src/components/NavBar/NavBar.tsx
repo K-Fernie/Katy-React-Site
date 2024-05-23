@@ -5,7 +5,12 @@ export default function NavBar() {
         <>
             <div className="nav-body">
                 <div className='options-board'>
-                    <button className="button-style">Button Text</button>
+                    <div className="buttons-container">
+                        <button className="button-style">Button Text</button>
+                        <button className="button-style">Button Text</button>
+                        <button className="button-style">Button Text</button>
+                        <button className="button-style">Button Text</button>
+                    </div>
                 </div>
             </div>
         </>)
