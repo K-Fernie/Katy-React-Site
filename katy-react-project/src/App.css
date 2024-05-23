@@ -1,0 +1,9 @@
+:root {
+    background-image: url("assets/home-page-background.png")
+}
+
+.base-page {
+    height: 100vh;
+    display: flex;
+}
+

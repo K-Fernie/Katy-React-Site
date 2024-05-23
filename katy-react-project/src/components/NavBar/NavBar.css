@@ -1,0 +1,32 @@
+.nav-body{
+    height: 100%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.options-board {
+    height: 687px;
+    width: 500px;
+    background-image: url('../../assets/options-board.png');
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.button-style {
+    margin-top: 115px;
+    margin-left:150px;
+    border: none;
+    background-image: url('../../assets/button-base.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 20px 40px;
+    cursor: pointer;
+    background-color: transparent;
+}
