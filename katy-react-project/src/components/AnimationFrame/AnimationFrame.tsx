@@ -5,8 +5,15 @@ import spriteSheet from '../../assets/sprite-sheet-v1.png';
 export default function AnimationFrame() {
     // Getting sprite sheet
     const canvasRef = useRef<HTMLCanvasElement>(null);
-
+    const spriteSheetRef = [
+        {rowName: 'run-right', rowIndex: 0, columns: 8, animationLoops: 4, move: 'right'},
+        {rowName: 'chop-right', rowIndex: 1, columns: 5, animationLoops: 6, move: 'none'},
+        {rowName: 'wipe-sweat', rowIndex: 3, columns: 8, animationLoops: 1, move: 'none'},
+        {rowName: 'run-left', rowIndex: 2, columns: 8, animationLoops: 4, move: 'left'},
+    ];
+    // Using use effect so methods are called after canvas render
     useEffect(() => {
+        // TODO need to figure out why the sprite is a little blurry
         const img = new Image();
         img.src = spriteSheet;
         img.onload = function () {
@@ -20,27 +27,30 @@ export default function AnimationFrame() {
 
         //Set canvas dimensions
         canvas.width = 500;
-        //Sprite data
+        //Sprite variables
+        let refIndex = 0;
+        let spriteRef = spriteSheetRef[refIndex]
         const spriteWidth = 32;
         const spriteHeight = 32;
         let spriteX = 0;
         const spriteY = canvas.height - spriteHeight;
-        const spriteCols = 19;
-        //Frame data
+
+        //Animation variables
         let frameIndex = 0;
-        const frameCount = spriteCols;
-        const frameSpeed = 5;
+        const frameSpeed = 9;
         let frameTimer = 0;
+        let animationLoops = 0;
         let isAnimating = true;
 
+
         // Draw a frame
-        function drawFrame(frameX: number, canvasX: number, canvasY: number) {
+        function drawFrame(frameX: number, frameY: number, canvasX: number, canvasY: number) {
             if (!ctx || !canvas) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(
                 img,
                 frameX * spriteWidth,
-                0, // y-coordinate is always 0 since there's only one row
+                frameY * spriteHeight, // y-coordinate is always 0 since there's only one row
                 spriteWidth,
                 spriteHeight,
                 canvasX,
@@ -53,28 +63,48 @@ export default function AnimationFrame() {
         function animate() {
             if (isAnimating) {
                 frameTimer++;
+                // This determines the speed of the sprite rendering
                 if (frameTimer >= frameSpeed) {
                     frameTimer = 0;
                     frameIndex++;
-                    // TODO Fix sprite sheet
-                    // 1. Top column running
-                    // 2. Second column chopping
-                    // 3. Third column blink, wipe sweat
-                    // 4. Fourth column run back to cabin
-                    // spriteX += 15 <- Example of sprite moving
-                    if (frameIndex >= frameCount) {
+                    // Updating X axis based on sprite direction
+                    switch (spriteRef.move) {
+                        case 'right':
+                            spriteX += 5
+                            console.log('moving right')
+                            break
+                        case 'left':
+                            spriteX -= 5
+                            console.log('moving left')
+                            break
+                        default:
+                            console.log('not moving')
+                            break
+                    }
+                    // This determines the x-index of the sprite sheet
+                    if (frameIndex >= spriteRef.columns) {
                         frameIndex = 0;
-                        isAnimating = false;
+                        animationLoops++;
+                        // This determines when to stop looping through the current animation
+                        if (animationLoops >= spriteRef.animationLoops) {
+                            animationLoops = 0;
+                            if (++refIndex >= spriteSheetRef.length) {
+                                refIndex = 0;
+                                isAnimating = false;
+                            }
+                            spriteRef = spriteSheetRef[refIndex];
+                        }
                     }
                 }
-                const frameX = frameIndex % spriteCols;
-                drawFrame(frameX, spriteX, spriteY);
+                const frameX = frameIndex % spriteRef.columns;
+                const frameY = spriteRef.rowIndex;
+                drawFrame(frameX, frameY, spriteX, spriteY);
             }
             requestAnimationFrame(animate);
         }
 
         function init() {
-            drawFrame(0, spriteX, spriteY);
+            drawFrame(0, 0, spriteX, spriteY);
             requestAnimationFrame(animate);
         }
     }, []);
@@ -86,3 +116,8 @@ export default function AnimationFrame() {
     )
 }
 
+// 1. Top column running
+// 2. Second column chopping
+// 3. Third column blink, wipe sweat
+// 4. Fourth column run back to cabin
+// spriteX += 15; <- Movement for the sprite
