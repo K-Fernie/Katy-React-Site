@@ -15,6 +15,7 @@ export default function AnimationFrame() {
     // Using use effect so methods are called after canvas render
     useEffect(() => {
         // TODO need to figure out why the sprite is a little blurry
+        // TODO add other frames for different things (fire burning), (chimeny smoke moving), etc.
         const img = new Image();
         img.src = spriteSheet;
         img.onload = function () {
@@ -29,10 +30,11 @@ export default function AnimationFrame() {
         //Sprite variables
         let refIndex = 0;
         let spriteRef = spriteSheetRef[refIndex]
-        const spriteWidth = 32;
-        const spriteHeight = 32;
+        const spriteRefWidth = 64;
+        const spriteRefHeight = 64;
+        const spriteRender = 32;
         let spriteX = 0;
-        const spriteY = canvas.height - spriteHeight;
+        const spriteY = canvas.height - 32;
 
         //Animation variables
         let frameIndex = 0;
@@ -48,14 +50,14 @@ export default function AnimationFrame() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(
                 img,
-                frameX * spriteWidth,
-                frameY * spriteHeight, // y-coordinate is always 0 since there's only one row
-                spriteWidth,
-                spriteHeight,
+                frameX * spriteRefWidth,
+                frameY * spriteRefHeight, // y-coordinate is always 0 since there's only one row
+                spriteRefWidth,
+                spriteRefHeight,
                 canvasX,
                 canvasY,
-                spriteWidth * 4,
-                spriteHeight
+                spriteRender * 4,
+                spriteRender
             );
         }
 
@@ -109,7 +111,7 @@ export default function AnimationFrame() {
 
 
     return (
-        <canvas ref={canvasRef} className="animation-container">
+        <canvas style={{imageRendering: 'pixelated'}} ref={canvasRef} className="animation-container">
         </canvas>
     )
 }
