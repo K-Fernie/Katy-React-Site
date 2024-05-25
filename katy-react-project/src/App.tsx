@@ -7,9 +7,7 @@ function App() {
     <>
         <div className="base-page">
             <NavBar></NavBar>
-            <div className="content">
-
-            </div>
+            <div className="content"></div>
             {/* TODO add body */}
             {/* TODO add interactive elements */}
             {/* TODO add footer */}

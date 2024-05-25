@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Pixelify+Sans:wght@500&display=swap');
+
 .nav-body{
+    margin-top: 250px;
     height: 100%;
     width: 500px;
     display: flex;
@@ -7,17 +10,18 @@
 }
 
 .options-board {
-    margin: 50px 50px;
-    height: 500px;
     width: 350px;
     background-image: url('../../assets/options-board.png');
-    background-size: contain;
+    background-size: cover;
     background-position: left center;
     background-repeat: no-repeat;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .buttons-container {
-    padding-top: 60px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -27,10 +31,27 @@
 .button-style {
     margin-top: 35px;
     border: none;
-    background-image: url('../../assets/button-base.png');
+    background-image: url('../../assets/button-unpushed.png');
     background-size: contain;
     background-repeat: no-repeat;
     padding: 20px 40px;
     cursor: pointer;
     background-color: transparent;
+    color: white;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 20px;
+    width: 154px;
+    height: 64px;
+}
+
+.button-style:active {
+    background-image: url('../../assets/button-pushed.png');
+}
+
+.options-header {
+    width: 200px;
+    height: 70px;
+    margin-top: -20px;
+    justify-self: center;
+    align-self: center;
 }
