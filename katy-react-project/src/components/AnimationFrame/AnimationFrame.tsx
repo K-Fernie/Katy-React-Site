@@ -1,23 +1,22 @@
 import './AnimationFrame.css'
 import {useEffect, useRef} from "react";
-import spriteSheet from '../../assets/sprite-sheet-v1.png';
 
-export default function AnimationFrame() {
-    // TODO refactor animation frame so it can be reused right now it only works for the single animation
+export interface SpriteRef {
+    rowName: string,
+    rowIndex: number,
+    columns: number,
+    animationLoops: number,
+    move: string
+}
+
+export default function AnimationFrame(props: { spriteSheet: string, spriteSheetRef: SpriteRef[]; }) {
     // Getting sprite sheet
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const spriteSheetRef = [
-        {rowName: 'run-right', rowIndex: 0, columns: 8, animationLoops: 4, move: 'right'},
-        {rowName: 'chop-right', rowIndex: 1, columns: 5, animationLoops: 6, move: 'none'},
-        {rowName: 'wipe-sweat', rowIndex: 3, columns: 8, animationLoops: 1, move: 'none'},
-        {rowName: 'run-left', rowIndex: 2, columns: 8, animationLoops: 4, move: 'left'},
-    ];
+
     // Using use effect so methods are called after canvas render
     useEffect(() => {
-        // TODO need to figure out why the sprite is a little blurry
-        // TODO add other frames for different things (fire burning), (chimeny smoke moving), etc.
         const img = new Image();
-        img.src = spriteSheet;
+        img.src = props.spriteSheet;
         img.onload = function () {
             init();
         };
@@ -29,12 +28,12 @@ export default function AnimationFrame() {
 
         //Sprite variables
         let refIndex = 0;
-        let spriteRef = spriteSheetRef[refIndex]
+        let spriteRef = props.spriteSheetRef[refIndex]
         const spriteRefWidth = 64;
         const spriteRefHeight = 64;
-        const spriteRender = 32;
+        const spriteRender = 64;
         let spriteX = 0;
-        const spriteY = canvas.height - 32;
+        const spriteY = canvas.height - 64;
 
         //Animation variables
         let frameIndex = 0;
@@ -56,7 +55,7 @@ export default function AnimationFrame() {
                 spriteRefHeight,
                 canvasX,
                 canvasY,
-                spriteRender * 4,
+                spriteRender,
                 spriteRender
             );
         }
@@ -86,11 +85,11 @@ export default function AnimationFrame() {
                         // This determines when to stop looping through the current animation
                         if (animationLoops >= spriteRef.animationLoops) {
                             animationLoops = 0;
-                            if (++refIndex >= spriteSheetRef.length) {
+                            if (++refIndex >= props.spriteSheetRef.length) {
                                 refIndex = 0;
                                 isAnimating = false;
                             }
-                            spriteRef = spriteSheetRef[refIndex];
+                            spriteRef = props.spriteSheetRef[refIndex];
                         }
                     }
                 }

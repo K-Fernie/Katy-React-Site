@@ -13,3 +13,8 @@
     display: flex;
     flex-direction: row;
 }
+
+.animation-frames {
+    display: flex;
+    flex-direction: column;
+}
