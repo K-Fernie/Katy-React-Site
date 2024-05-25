@@ -3,6 +3,7 @@ import {useEffect, useRef} from "react";
 import spriteSheet from '../../assets/sprite-sheet-v1.png';
 
 export default function AnimationFrame() {
+    // TODO refactor animation frame so it can be reused right now it only works for the single animation
     // Getting sprite sheet
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const spriteSheetRef = [
@@ -25,8 +26,6 @@ export default function AnimationFrame() {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        //Set canvas dimensions
-        canvas.width = 500;
         //Sprite variables
         let refIndex = 0;
         let spriteRef = spriteSheetRef[refIndex]
@@ -43,7 +42,7 @@ export default function AnimationFrame() {
         let isAnimating = true;
 
 
-        // Draw a frame
+        // draw frame used to render the sprite to the screen
         function drawFrame(frameX: number, frameY: number, canvasX: number, canvasY: number) {
             if (!ctx || !canvas) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -71,14 +70,11 @@ export default function AnimationFrame() {
                     switch (spriteRef.move) {
                         case 'right':
                             spriteX += 5
-                            console.log('moving right')
                             break
                         case 'left':
                             spriteX -= 5
-                            console.log('moving left')
                             break
                         default:
-                            console.log('not moving')
                             break
                     }
                     // This determines the x-index of the sprite sheet
@@ -100,10 +96,12 @@ export default function AnimationFrame() {
                 const frameY = spriteRef.rowIndex;
                 drawFrame(frameX, frameY, spriteX, spriteY);
             }
+            // TODO this will forever be called unless we only want it triggered by something
             requestAnimationFrame(animate);
         }
 
         function init() {
+            // Draw the initial frame and initialize recursive animation loop
             drawFrame(0, 0, spriteX, spriteY);
             requestAnimationFrame(animate);
         }
