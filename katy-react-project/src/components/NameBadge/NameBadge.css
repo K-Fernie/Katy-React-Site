@@ -1,0 +1,12 @@
+:root {
+    --shadow: #14162C;
+}
+
+.main-header {
+    align-self: center;
+    font-family: 'BigPixel', serif;
+    color: white;
+    font-size: 35px;
+    padding-top: 25px;
+    text-shadow: 5px 0 0 var(--shadow), 0 -5px 0 var(--shadow), 0 5px 0 var(--shadow), -5px 0 0 var(--shadow);
+}

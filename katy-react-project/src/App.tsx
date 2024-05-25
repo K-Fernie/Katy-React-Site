@@ -1,16 +1,19 @@
 import './App.css'
 import NavBar from "./components/NavBar/NavBar.tsx";
+import NameBadge from "./components/NameBadge/NameBadge.tsx";
+import Footer from "./components/Footer/Footer.tsx";
 
 function App() {
 
   return (
     <>
         <div className="base-page">
+            <NameBadge></NameBadge>
             <NavBar></NavBar>
-            <div className="content"></div>
-            {/* TODO add body */}
+            <Footer></Footer>
+            {/* TODO add characters */}
             {/* TODO add interactive elements */}
-            {/* TODO add footer */}
+            {/* TODO add new pages and navigation */}
         </div>
     </>
   )

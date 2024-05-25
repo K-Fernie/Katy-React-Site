@@ -11,8 +11,8 @@ export default function NavBar() {
                     <img className="options-header" src={options} alt="options"/>
                     <div className="buttons-container">
                         <button className="button-style" onClick={doSomething}>Portfolio</button>
+                        <button className="button-style" onClick={doSomething}>About Me</button>
                         <button className="button-style" onClick={doSomething}>Resume</button>
-                        <button className="button-style" onClick={doSomething}>Github</button>
                         <button className="button-style" onClick={doSomething}>Games</button>
                     </div>
                 </div>

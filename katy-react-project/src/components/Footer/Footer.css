@@ -1,0 +1,12 @@
+.footer-elements{
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.icon {
+    margin: 55px 25px;
+    width: 75px;
+    height: 75px;
+}

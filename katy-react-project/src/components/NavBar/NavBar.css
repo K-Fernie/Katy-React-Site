@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Pixelify+Sans:wght@500&display=swap');
 
 .nav-body{
-    margin-top: 250px;
-    height: 100%;
+    margin-top: 200px;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -10,7 +9,7 @@
 }
 
 .options-board {
-    width: 350px;
+    width: 300px;
     background-image: url('../../assets/options-board.png');
     background-size: cover;
     background-position: left center;
@@ -26,22 +25,22 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
+    padding: 25px;
 }
 
 .button-style {
-    margin-top: 35px;
+    margin-top: 10px;
     border: none;
     background-image: url('../../assets/button-unpushed.png');
     background-size: contain;
     background-repeat: no-repeat;
-    padding: 20px 40px;
     cursor: pointer;
     background-color: transparent;
     color: white;
-    font-family: "Pixelify Sans", sans-serif;
+    font-family: "BigPixel", sans-serif;
     font-size: 20px;
-    width: 154px;
-    height: 64px;
+    width: 180px;
+    height: 77px;
 }
 
 .button-style:active {

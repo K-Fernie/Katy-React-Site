@@ -1,9 +1,10 @@
 :root {
-    background-image: url("assets/home-page-background.png")
+    background-image: url("assets/home-page-background.png");
+    background-size: contain;
 }
 
 .base-page {
     height: 100vh;
     display: flex;
+    flex-direction: column;
 }
-
