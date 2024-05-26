@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
-    base: 'Katy-React-Site/katy-react-project'
+    base: '/katy-react-project/'
 })
