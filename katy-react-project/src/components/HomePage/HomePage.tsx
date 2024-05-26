@@ -30,9 +30,7 @@ export default function HomePage() {
                     </div>
                 </div>
                 <Footer></Footer>
-                {/* TODO add characters */}
                 {/* TODO add interactive elements */}
-                {/* TODO add new pages and navigation */}
                 {/* TODO make the options panel a flyout that doesn't affect other elements*/}
             </div>
         </>
