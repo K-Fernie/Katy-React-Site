@@ -17,7 +17,7 @@ export default function HomePage() {
             <div className="base-page">
                 <NameBadge></NameBadge>
                 <div className="body">
-                    <NavBar></NavBar>
+                    <NavBar isHomePage={true}></NavBar>
                     <div className="animation-frames">
                         <AnimationFrame
                             spriteSheetRef={smokeAnimationRef}

@@ -1,4 +1,6 @@
-.footer-elements{
+.footer-elements {
+    margin-top: -15px;
+    margin-right: 30px;
     height: 150px;
     display: flex;
     flex-direction: row;
