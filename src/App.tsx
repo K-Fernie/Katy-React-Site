@@ -10,7 +10,7 @@ function App() {
     return (
         <>
             <Routes>
-                <Route path="/" element={<HomePage/>}/>
+                <Route path="/Katy-React-Site/" element={<HomePage/>}/>
                 <Route path="/portfolio" element={<PortfolioPage/>}/>
                 <Route path="/about-me" element={<AboutMePage/>}/>
                 <Route path="/games" element={<GamesPage/>}/>
