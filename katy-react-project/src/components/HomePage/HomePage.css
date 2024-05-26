@@ -1,0 +1,20 @@
+:root {
+    background-image: url("../../assets/home-page-background.png");
+    background-size: contain;
+}
+
+.base-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+}
+
+.animation-frames {
+    display: flex;
+    flex-direction: column;
+}

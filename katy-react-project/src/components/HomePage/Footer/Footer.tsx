@@ -1,7 +1,7 @@
 import './Footer.css'
-import linkedIn from '../../assets/linked-in.png'
-import github from '../../assets/github.png'
-import x from '../../assets/x-icon.png'
+import linkedIn from '../../../assets/linked-in.png'
+import github from '../../../assets/github.png'
+import x from '../../../assets/x-icon.png'
 
 interface Icon {
     ref: string;
