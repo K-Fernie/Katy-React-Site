@@ -10,8 +10,10 @@ export interface SpriteRef {
 }
 
 export default function AnimationFrame(props: { spriteSheet: string, spriteSheetRef: SpriteRef[]; }) {
-    // TODo in the props need to pass in if the animation should stop or forever continue
+    // TODO in the props need to pass in if the animation should stop or forever continue
     // TODO need to pass in the height and width of the canvas so we can dynamically set how big it should be
+    // TODO the frame needs to be sticky (not flex) so it doesn't move
+    // TODO the rendering needs to be adjusted (the speed is wild on other computers)
     // Getting sprite sheet
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -39,8 +41,9 @@ export default function AnimationFrame(props: { spriteSheet: string, spriteSheet
 
         //Animation variables
         let frameIndex = 0;
-        const frameSpeed = 9;
-        let frameTimer = 0;
+        const frameSpeed = 6;
+        const frameDuration = 1000 / frameSpeed;
+        let lastTimestamp = 0;
         let animationLoops = 0;
         let isAnimating = true;
 
@@ -62,38 +65,47 @@ export default function AnimationFrame(props: { spriteSheet: string, spriteSheet
             );
         }
 
-        function animate() {
-            if (isAnimating) {
-                frameTimer++;
-                // This determines the speed of the sprite rendering
-                if (frameTimer >= frameSpeed) {
-                    frameTimer = 0;
-                    frameIndex++;
-                    // Updating X axis based on sprite direction
-                    switch (spriteRef.move) {
-                        case 'right':
-                            spriteX += 5
-                            break
-                        case 'left':
-                            spriteX -= 5
-                            break
-                        default:
-                            break
-                    }
-                    // This determines the x-index of the sprite sheet
-                    if (frameIndex >= spriteRef.columns) {
-                        frameIndex = 0;
-                        animationLoops++;
-                        // This determines when to stop looping through the current animation
-                        if (animationLoops >= spriteRef.animationLoops) {
-                            animationLoops = 0;
-                            if (++refIndex >= props.spriteSheetRef.length) {
-                                refIndex = 0;
-                            }
-                            spriteRef = props.spriteSheetRef[refIndex];
+        function animate(timestamp: number) {
+            if (!isAnimating) {
+                return;
+            }
+
+            if (!lastTimestamp) {
+                lastTimestamp = timestamp;
+            }
+
+            const delta = timestamp - lastTimestamp;
+
+            if (delta >= frameDuration) {
+                lastTimestamp = timestamp;
+                frameIndex++;
+
+                // Updating X axis based on sprite direction
+                switch (spriteRef.move) {
+                    case 'right':
+                        spriteX += 5;
+                        break;
+                    case 'left':
+                        spriteX -= 5;
+                        break;
+                    default:
+                        break;
+                }
+
+                // This determines the x-index of the sprite sheet
+                if (frameIndex >= spriteRef.columns) {
+                    frameIndex = 0;
+                    animationLoops++;
+                    // This determines when to stop looping through the current animation
+                    if (animationLoops >= spriteRef.animationLoops) {
+                        animationLoops = 0;
+                        if (++refIndex >= props.spriteSheetRef.length) {
+                            refIndex = 0;
                         }
+                        spriteRef = props.spriteSheetRef[refIndex];
                     }
                 }
+
                 const frameX = frameIndex % spriteRef.columns;
                 const frameY = spriteRef.rowIndex;
                 drawFrame(frameX, frameY, spriteX, spriteY);
@@ -101,6 +113,7 @@ export default function AnimationFrame(props: { spriteSheet: string, spriteSheet
             // TODO this will forever be called unless we only want it triggered by something
             requestAnimationFrame(animate);
         }
+
 
         function init() {
             // Draw the initial frame and initialize recursive animation loop

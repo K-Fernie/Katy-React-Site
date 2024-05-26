@@ -5,6 +5,7 @@ import katySpriteSheet from "../../assets/sprite-sheet-v1.png";
 import Footer from "./Footer/Footer.tsx";
 
 export default function HomePage() {
+    // TODO figure out how to configure the site for mobile as well (primarily phones)
     const katyAnimationRef: SpriteRef[] = [
         {rowName: 'run-right', rowIndex: 0, columns: 8, animationLoops: 4, move: 'right'},
         {rowName: 'chop-right', rowIndex: 1, columns: 5, animationLoops: 6, move: 'none'},
