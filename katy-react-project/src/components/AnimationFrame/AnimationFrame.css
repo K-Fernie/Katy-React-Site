@@ -1,5 +1,6 @@
 .animation-container {
-    border: 5px solid black;
+    margin-top: 15px;
+    margin-left: 100px;
     width: 550px;
     height: 310px;
 }

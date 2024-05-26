@@ -10,10 +10,12 @@ export interface SpriteRef {
 }
 
 export default function AnimationFrame(props: { spriteSheet: string, spriteSheetRef: SpriteRef[]; }) {
+    // TODo in the props need to pass in if the animation should stop or forever continue
+    // TODO need to pass in the height and width of the canvas so we can dynamically set how big it should be
     // Getting sprite sheet
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    // Using use effect so methods are called after canvas render
+    // Using use effect so methods are called after canvas renders
     useEffect(() => {
         const img = new Image();
         img.src = props.spriteSheet;
@@ -87,7 +89,6 @@ export default function AnimationFrame(props: { spriteSheet: string, spriteSheet
                             animationLoops = 0;
                             if (++refIndex >= props.spriteSheetRef.length) {
                                 refIndex = 0;
-                                isAnimating = false;
                             }
                             spriteRef = props.spriteSheetRef[refIndex];
                         }
@@ -114,9 +115,3 @@ export default function AnimationFrame(props: { spriteSheet: string, spriteSheet
         </canvas>
     )
 }
-
-// 1. Top column running
-// 2. Second column chopping
-// 3. Third column blink, wipe sweat
-// 4. Fourth column run back to cabin
-// spriteX += 15; <- Movement for the sprite

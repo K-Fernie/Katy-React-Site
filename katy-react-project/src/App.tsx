@@ -9,7 +9,7 @@ function App() {
     const katyAnimationRef: SpriteRef[] = [
         {rowName: 'run-right', rowIndex: 0, columns: 8, animationLoops: 4, move: 'right'},
         {rowName: 'chop-right', rowIndex: 1, columns: 5, animationLoops: 6, move: 'none'},
-        {rowName: 'wipe-sweat', rowIndex: 3, columns: 8, animationLoops: 1, move: 'none'},
+        {rowName: 'celebrate', rowIndex: 3, columns: 8, animationLoops: 2, move: 'none'},
         {rowName: 'run-left', rowIndex: 2, columns: 8, animationLoops: 4, move: 'left'},
     ];
     const smokeAnimationRef: SpriteRef[] = [];
