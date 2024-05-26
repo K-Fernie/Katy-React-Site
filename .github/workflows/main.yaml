@@ -39,6 +39,7 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+        working-directory: './katy-react-project'
       - name: Build
         run: npm run build
       - name: Setup Pages
