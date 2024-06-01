@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Pixelify+Sans:wght@500&display=swap');
 
 .nav-body {
+    position: fixed;
+    top: 50px;
+    left: 0;
     margin-left: -10px;
     margin-top: 50px;
     width: 404px;

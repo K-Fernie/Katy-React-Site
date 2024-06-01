@@ -2,7 +2,8 @@ import NameBadge from "./NameBadge/NameBadge.tsx";
 import AnimationFrame, {SpriteRef} from "../AnimationFrame/AnimationFrame.tsx";
 import katySpriteSheet from "../../assets/sprite-sheet-v1.png";
 import Footer from "./Footer/Footer.tsx";
-
+import './HomePage.css'
+import NavBar from "../NavBar/NavBar.tsx";
 export default function HomePage() {
     // TODO figure out how to configure the site for mobile as well (primarily phones)
     const katyAnimationRef: SpriteRef[] = [
@@ -14,9 +15,9 @@ export default function HomePage() {
     return (
         <>
             <div className="base-page">
+                <NavBar isHomePage={true}></NavBar>
                 <NameBadge></NameBadge>
                 <div className="body">
-                    {/*<NavBar isHomePage={true}></NavBar>*/}
                     <div className="animation-frames">
                         <AnimationFrame
                             key="katy-animation"
