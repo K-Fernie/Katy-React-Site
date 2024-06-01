@@ -27,10 +27,10 @@ export default function ResumePage() {
                     <p>Software Engineer, Amazon Fulfillment Technologies</p>
                     <p>* * *</p>
                     <p>Accenture | Nashville, TN</p>
-                    <p>Software Engineer, Amazon Fulfillment Technologies</p>
+                    <p>Software Engineering Associate</p>
                     <p>* * *</p>
                     <p>Nelson Laboratories, LLC | West Jordan, UT</p>
-                    <p>Software Engineer, Amazon Fulfillment Technologies</p>
+                    <p>Document Control Supervisor</p>
                 </div>
             </div>
         </div>
