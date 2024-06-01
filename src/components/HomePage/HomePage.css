@@ -12,9 +12,9 @@
 .body {
     display: flex;
     flex-direction: row;
+    flex: 25 1 auto;
 }
 
 .animation-frames {
-    display: flex;
-    flex-direction: column;
+    align-self: flex-end;
 }

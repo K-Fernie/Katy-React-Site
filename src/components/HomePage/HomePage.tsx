@@ -1,5 +1,4 @@
 import NameBadge from "./NameBadge/NameBadge.tsx";
-import NavBar from "../NavBar/NavBar.tsx";
 import AnimationFrame, {SpriteRef} from "../AnimationFrame/AnimationFrame.tsx";
 import katySpriteSheet from "../../assets/sprite-sheet-v1.png";
 import Footer from "./Footer/Footer.tsx";
@@ -12,19 +11,15 @@ export default function HomePage() {
         {rowName: 'celebrate', rowIndex: 3, columns: 8, animationLoops: 2, move: 'none'},
         {rowName: 'run-left', rowIndex: 2, columns: 8, animationLoops: 4, move: 'left'},
     ];
-    const smokeAnimationRef: SpriteRef[] = [];
     return (
         <>
             <div className="base-page">
                 <NameBadge></NameBadge>
                 <div className="body">
-                    <NavBar isHomePage={true}></NavBar>
+                    {/*<NavBar isHomePage={true}></NavBar>*/}
                     <div className="animation-frames">
                         <AnimationFrame
-                            spriteSheetRef={smokeAnimationRef}
-                            spriteSheet={''}
-                        ></AnimationFrame>
-                        <AnimationFrame
+                            key="katy-animation"
                             spriteSheetRef={katyAnimationRef}
                             spriteSheet={katySpriteSheet}
                         ></AnimationFrame>

@@ -3,6 +3,7 @@
 }
 
 .main-header {
+    flex: 1 1 auto;
     align-self: center;
     font-family: 'BigPixel', serif;
     color: white;
