@@ -11,10 +11,10 @@ function App() {
         <>
             <Routes>
                 <Route path="/Katy-React-Site/" element={<HomePage/>}/>
-                <Route path="/portfolio" element={<PortfolioPage/>}/>
-                <Route path="/about-me" element={<AboutMePage/>}/>
-                <Route path="/games" element={<GamesPage/>}/>
-                <Route path="/resume" element={<ResumePage/>}/>
+                <Route path="/Katy-React-Site/portfolio" element={<PortfolioPage/>}/>
+                <Route path="/Katy-React-Site/about-me" element={<AboutMePage/>}/>
+                <Route path="/Katy-React-Site/games" element={<GamesPage/>}/>
+                <Route path="/Katy-React-Site/resume" element={<ResumePage/>}/>
             </Routes>
 
         </>
