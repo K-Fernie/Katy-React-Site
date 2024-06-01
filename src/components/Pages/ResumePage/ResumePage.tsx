@@ -1,5 +1,8 @@
+import './ResumePage.css'
 export default function ResumePage() {
     return (
-        <div>Resume Page Works</div>
+        <div className="base-page">
+
+        </div>
     )
 }

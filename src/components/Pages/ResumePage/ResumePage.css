@@ -1,0 +1,8 @@
+.base-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: -10px;
+    background-image: url("../../../assets/home-page-background.png");
+    background-size: contain;
+}
