@@ -1,8 +1,71 @@
-.base-page {
+.resume-base-page {
     height: 100vh;
     display: flex;
     flex-direction: column;
     margin: -10px;
-    background-image: url("../../../assets/home-page-background.png");
-    background-size: contain;
+    background-image: url("../../../assets/fox-background.jpg");
+    background-size: cover;
+    font-family: "BigPixel", sans-serif;
+}
+
+.clipboard {
+    align-self: center;
+    height: 100vh;
+    width: 60%;
+    background-image: url("../../../assets/clipboard.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.resume-text {
+    margin-top: 210px;
+}
+
+.center {
+    text-align: center;
+}
+
+p {
+    width: 86%;
+    margin-left: 75px;
+}
+
+table {
+    margin-left: 75px;
+    width: 75%;
+    border-collapse: separate; /* Use 'separate' to enable border-spacing */
+    border-spacing: 10px; /* Adjust the spacing between columns and rows */
+}
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.download-button{
+    position:fixed;
+    top: 50px;
+    right: 50px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    border: none;
+    background-image: url('../../../assets/button-red-unpushed.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    color: white;
+    font-family: "BigPixel", sans-serif;
+    font-size: 18px;
+    font-weight: 10;
+    width: 200px;
+    height: 85px;
+    text-decoration: none;
+}
+
+.download-button:active {
+    background-image: url('../../../assets/button-red-pushed.png');
 }
