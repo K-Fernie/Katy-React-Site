@@ -9,24 +9,27 @@ export default function ResumePage() {
             <DownloadButton></DownloadButton>
             <div className="clipboard">
                 <div className="resume-text">
-                    <h4 className="center">Kaitlyn Fernelius | Software Engineer</h4>
+                    <h3 className="center">Kaitlyn Fernelius | Software Engineer</h3>
                     <Separator></Separator>
-                    <h4 className="center">Professional Summary</h4>
+                    <h3 className="center">Professional Summary</h3>
                     <p>Software Development Engineer with Bachelor’s degree in computer science and 4+ years of proven
                         experience in
                         supporting cross-functional teams.</p>
                     <Separator></Separator>
-                    <h4 className="center">Skills</h4>
+                    <h3 className="center">Skills</h3>
                     <SkillsTable></SkillsTable>
                     <Separator></Separator>
-                    <h4 className="center">Professional Experience</h4>
+                    <h3 className="center">Professional Experience</h3>
                     <p>Kohl's Technology | Remote</p>
                     <p>Software Engineer</p>
-                    <br></br>
+                    <p>* * *</p>
                     <p>Amazon | Remote</p>
                     <p>Software Engineer, Amazon Fulfillment Technologies</p>
-                    <br></br>
+                    <p>* * *</p>
                     <p>Accenture | Nashville, TN</p>
+                    <p>Software Engineer, Amazon Fulfillment Technologies</p>
+                    <p>* * *</p>
+                    <p>Nelson Laboratories, LLC | West Jordan, UT</p>
                     <p>Software Engineer, Amazon Fulfillment Technologies</p>
                 </div>
             </div>
