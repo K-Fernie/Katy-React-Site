@@ -1,5 +1,9 @@
+import InProgressPage from "../InProgressPage/InProgressPage.tsx";
+
 export default function GamesPage() {
     return (
-        <div>Games Page Works</div>
+        <div>
+            <InProgressPage/>
+        </div>
     )
 }

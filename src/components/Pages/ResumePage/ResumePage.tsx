@@ -1,11 +1,12 @@
 import './ResumePage.css'
 import NavBar from "../../NavBar/NavBar.tsx";
 import resume from "../../../assets/resume.pdf"
+import {Pages} from "../../../constants/pageNames.ts";
 
 export default function ResumePage() {
     return (
         <div className="resume-base-page">
-            <NavBar isHomePage={false}></NavBar>
+            <NavBar pageName={Pages.ResumePage}></NavBar>
             <DownloadButton></DownloadButton>
             <div className="clipboard">
                 <div className="resume-text">
