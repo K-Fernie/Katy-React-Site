@@ -2,3 +2,8 @@
     font-family:'BigPixel';
     src: local('BixPixel'), url(./fonts/KemcoPixelBold.ttf) format('truetype');
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+}

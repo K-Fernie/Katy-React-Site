@@ -1,5 +1,31 @@
-:root {
+/* Fullscreen black background */
+.hacker-screen {
     height: 100vh;
     width: 100vw;
-    background: #14162C none !important;
+    background-color: black;
+    color: #00ff00;
+    font-family: 'BigPixel', serif;
+    text-shadow: 0 0 1px #00ff00;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The typed text */
+.typed-text {
+    display: inline;
+}
+
+/* The blinking cursor */
+.cursor {
+    display: inline;
+    font-size: 30px;
+    animation: blink 1s infinite alternate;
+}
+
+/* Cursor blink effect */
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
